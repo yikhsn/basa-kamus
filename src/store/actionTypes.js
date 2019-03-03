@@ -1,0 +1,3 @@
+export const SET_WORD = 'SET_WORD';
+export const SET_TRANSLATION = 'SET_TRANSLATION';
+export const SET_SUGESTIONS = 'SET_SUGESTIONS';
