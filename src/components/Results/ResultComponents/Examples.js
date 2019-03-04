@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Example from './Example';
 
 const styles = StyleSheet.create({
     container: {
@@ -22,18 +23,17 @@ const styles = StyleSheet.create({
 
 class Content extends Component{
     render(){
-        const renderDatas = this.props.datas.map( (data, index) => {
-            return <Text key={index} style={styles.content}>{data}</Text>
-        })
+        const renderExamples = this.props.examples.map(
+            (example, index) => <Example key={index} example={example} />
+        )
 
         return(
             <View style={styles.container}>
-                
                 <Text style={styles.subtitle}>
                     {this.props.subtitle}
                 </Text>
-                
-                { renderDatas }
+
+                { renderExamples }
 
             </View>
         )

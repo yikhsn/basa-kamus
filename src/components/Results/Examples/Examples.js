@@ -15,8 +15,7 @@ const styles = StyleSheet.create({
 class Examples extends Component{
     render(){
         return(
-            <Box>
-                <Title />
+            // <Box>
                 <View style={styles.container}>
 
                     <Example />
@@ -24,7 +23,7 @@ class Examples extends Component{
                     <Example />
                     <Example />
                 </View>
-            </Box>
+            // </Box>
         )
     }
 }

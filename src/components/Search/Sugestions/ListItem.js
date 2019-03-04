@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { View, TouchableHighlight, Text, StyleSheet } from 'react-native';
+import { TouchableHighlight, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
-    container: {
+    list: {
         flex: 1,
         borderBottomWidth: 1,
         borderColor: '#eaeaea',
-    },
-    list: {
-        flex: 1,
         paddingHorizontal: 20,
         paddingVertical: 15,
     },
@@ -18,21 +16,25 @@ const styles = StyleSheet.create({
     }
 })
 
-class ListItem extends Component{    
+class ListItem extends Component{
+    
     render(){
         return(
-            <View style={styles.container}>
-                <TouchableHighlight 
-                    style={styles.list}
-                    onPress={() => this.props.onListSelected(this.props.word)}
-                    underlayColor={'#eaeaea'}
-                >
-                    <Text style={styles.textList}>{this.props.word}</Text>
-                </TouchableHighlight>
-            </View>
+            <TouchableHighlight 
+                style={styles.list}
+                onPress={() => this.props.onListSelected(this.props.word)}
+                underlayColor={'#eaeaea'}
+            >
+                <Text style={styles.textList}>{this.props.word}</Text>
+            </TouchableHighlight>
         )
-        
     }
 }
 
-export default ListItem;
+const mapStateToProps = state => {
+    return {
+        datas: state
+    }
+}
+
+export default connect(mapStateToProps)(ListItem);

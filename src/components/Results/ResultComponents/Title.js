@@ -27,9 +27,9 @@ class Title extends Component{
     render(){
         return(
             <View style={styles.container}>
-                <Text style={styles.title}>DEFINISI</Text>
+                <Text style={styles.title}>{this.props.title.toUpperCase()}</Text>
                 <Text style={styles.splitter}>|</Text>
-                <Text style={styles.words}>adat</Text>
+                <Text style={styles.words}>{this.props.words}</Text>
             </View>
         )
     }

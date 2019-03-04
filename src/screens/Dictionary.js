@@ -1,38 +1,48 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, Text } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 
 import * as actionCreators from '../store/actionCreators';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Translation from '../components/Results/Translation/Translation';
-import Examples from '../components/Results/Examples/Examples';
+import Result from '../components/Results/Result/Result';
+import Sugestions from '../components/Search/Sugestions/Sugestions';
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 5,
-        paddingBottom: 5,
         flex: 1,
-        backgroundColor: '#eaeaea'
+        backgroundColor: '#eaeaea',
+        paddingTop: 5,
+        paddingBottom: 35
     }
 })
 
 class Dictionary extends Component{
     render() {
+
+        const { datas } = this.props;
+    
+        const renderTranslation = datas.types.map( (cur, index) => {
+            return <Result key={index} datas={cur}/>
+        })
+
         return(
-            <ScrollView style={styles.container}>
-                <Translation />
-                <Translation />
-
-                <Examples />
-
+            <ScrollView 
+                style={styles.container}
+                keyboardShouldPersistTaps={'always'}
+            >
+                {
+                    datas.isSearchMode 
+                        ? <Sugestions />
+                        : renderTranslation
+                }
             </ScrollView>
         )
     }
 }
 
 const mapStateToProps = state => {
-    return{
+    return {
         datas: state
     }
 }

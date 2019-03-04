@@ -5,7 +5,8 @@ import {
     createAppContainer 
 } from 'react-navigation';
 
-import CustomHeader from './src/components/Header/Header';
+import MainHeader from './src/components/Header/MainHeader';
+import SearchBarHeader from './src/components/Header/SearchBarHeader';
 
 import Dictionary from './src/screens/Dictionary';
 import Search from './src/screens/Search';
@@ -15,18 +16,20 @@ const AppNavigator = createStackNavigator(
         Dictionary: {
             screen: Dictionary,
             navigationOptions: {
-                header: navProps => <CustomHeader {...navProps}/>
+                header: navProps => <SearchBarHeader {...navProps}/>
+            
             }
         }, 
         Search: {
             screen: Search,
             navigationOptions: {
-                header: navProps => <CustomHeader {...navProps}/>
+                header: navProps => <SearchBarHeader {...navProps}/>
+            
             }
         }
     },
     {
-        initialRouteName: 'Search',
+        initialRouteName: 'Dictionary',
         navigationOptions: {
             headerStyle: {
                 backgroundColor: 'transparent',
