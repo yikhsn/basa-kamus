@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Box from '../ResultComponents/Box';
 import Title from '../ResultComponents/Title';
 import Content from '../ResultComponents/Content';
@@ -7,7 +6,21 @@ import Examples from '../ResultComponents/Examples';
 
 class Translation extends Component{
     render(){
-        const { translations, synonyms, examples, word_type, words } = this.props.datas;
+        
+        const {
+            definitions,
+            translations,
+            synonyms,
+            examples,
+            word_type,
+            words
+        } = this.props.datas;
+
+        const renderDefinitions = definitions.length > 0
+            ? <Content 
+                datas={definitions}
+                subtitle='Definisi' />
+            : null;
 
         const renderTranslations = translations.length > 0 
             ? <Content 
@@ -38,6 +51,8 @@ class Translation extends Component{
                 />
             
                 { renderTranslations }
+
+                { renderDefinitions }
 
                 { renderSynonyms }
 

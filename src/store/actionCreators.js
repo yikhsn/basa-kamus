@@ -21,6 +21,20 @@ export const setSugestions = sugestions => {
     }
 }
 
+export const setRecent = recent => {
+    return {
+        type: actionTypes.SET_RECENT,
+        recent: recent
+    }
+}
+
+export const resetRecent = recent => {
+    return {
+        type: actionTypes.RESET_RECENT,
+        recent: recent
+    }
+}
+
 export const setSearchMode = () => {
     return {
         type: actionTypes.SET_SEARCH_MODE

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, Text, StyleSheet } from 'react-native';
+import { TouchableHighlight, Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
@@ -8,11 +8,20 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: '#eaeaea',
         paddingHorizontal: 20,
-        paddingVertical: 15,
+        paddingVertical: 10,
+        flexDirection: 'row',
+        alignItems: 'center'
     },
-    textList: {
+    container: {
+        justifyContent: 'center'
+    },
+    text: {
         color: '#666666',
-        fontSize: 20
+        fontSize: 22
+    },
+    type: {
+        fontSize: 18,
+        color: '#888888',
     }
 })
 
@@ -22,10 +31,13 @@ class ListItem extends Component{
         return(
             <TouchableHighlight 
                 style={styles.list}
-                onPress={() => this.props.onListSelected(this.props.word)}
+                onPress={() => this.props.onSelected(this.props.word, this.props.item)}
                 underlayColor={'#eaeaea'}
             >
-                <Text style={styles.textList}>{this.props.word}</Text>
+                <View style={styles.container}>
+                    <Text style={styles.text}>{this.props.word}</Text>
+                    <Text style={styles.type}>{this.props.type}</Text>
+                </View>
             </TouchableHighlight>
         )
     }

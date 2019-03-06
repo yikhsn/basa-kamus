@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, FlatList, Keyboard } from 'react-native';
-
+import { ScrollView, StyleSheet, Keyboard } from 'react-native';
 import axios from 'axios';
-
 import * as actionCreators from '../../../store/actionCreators';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import ListItem from './ListItem';
+import Recents from './Recents';
+import Results from './Results';
 
 const styles = StyleSheet.create({
     container: {
@@ -18,10 +17,14 @@ const styles = StyleSheet.create({
 })
 
 class Sugestions extends Component {    
-    onListSelectedHandler = (word) => {
+    onListSelectedHandler = (word, data) => {
         Keyboard.dismiss();
 
         this.props.setWord('');
+
+        this.props.setSugestions([]);
+
+        this.props.setRecent(data);
 
         this.props.removeSearchMode();
 
@@ -29,8 +32,19 @@ class Sugestions extends Component {
             this.props.setTypes(data);
         })
 
-        console.log(this.props.datas);
-        
+        // console.log(this.props.datas);
+    }
+
+    onRecentSelectedHandler = (word, data) => {
+        Keyboard.dismiss();
+
+        this.props.resetRecent(data);
+
+        this.props.removeSearchMode();
+
+        this.getData(word).then( data => {
+            this.props.setTypes(data);
+        })
     }
 
     getData = (query) => {
@@ -40,24 +54,30 @@ class Sugestions extends Component {
     }
 
     render(){
-        const { sugestions } = this.props.datas;
+        const { recents, sugestions } = this.props.datas;
 
         return(
             <ScrollView 
                 style={styles.container}
                 keyboardShouldPersistTaps={'always'}
             >
-                <FlatList
-                    keyboardShouldPersistTaps={'always'}
-                    data={ sugestions }
-                    renderItem={ ({ item }) =>  {
-                       return <ListItem 
-                            word={ item.words } 
-                            onListSelected={ this.onListSelectedHandler }
-                        />
-                    }}
-                    keyExtractor={ (item, index) => item + index }
-                />
+
+            {
+                sugestions.length > 0
+                    ? <Results 
+                        onListSelected={this.onListSelectedHandler}
+                    />
+                    : null
+            }
+
+            {
+                recents.length > 0
+                    ? <Recents
+                        onRecentSelected={this.onRecentSelectedHandler}
+                    />
+                    : null
+            }
+
             </ScrollView>
         )
     }

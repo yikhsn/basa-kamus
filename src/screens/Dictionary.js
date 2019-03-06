@@ -6,16 +6,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Result from '../components/Results/Result/Result';
+import Definitions from '../components/Results/Definitions/Definitions';
 import Sugestions from '../components/Search/Sugestions/Sugestions';
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#eaeaea',
-        paddingTop: 5,
-        paddingBottom: 35
-    }
-})
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         backgroundColor: '#eaeaea',
+//         paddingTop: 5,
+//         paddingBottom: 5
+//     }
+// })
 
 class Dictionary extends Component{
     render() {
@@ -28,13 +29,23 @@ class Dictionary extends Component{
 
         return(
             <ScrollView 
-                style={styles.container}
+                style={{
+                    flex: 1,
+                    backgroundColor: '#eaeaea',
+                    paddingTop: datas.isSearchMode ? 0 : 5,
+                }}
                 keyboardShouldPersistTaps={'always'}
             >
                 {
                     datas.isSearchMode 
-                        ? <Sugestions />
-                        : renderTranslation
+                        ?   <Sugestions />
+                        :   <View>
+
+                                <Definitions />
+
+                                { renderTranslation }
+                                
+                            </View>
                 }
             </ScrollView>
         )
