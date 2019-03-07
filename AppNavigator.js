@@ -29,7 +29,7 @@ const AppNavigator = createStackNavigator(
         }
     },
     {
-        initialRouteName: 'Search',
+        initialRouteName: 'Dictionary',
         navigationOptions: {
             headerStyle: {
                 backgroundColor: 'transparent',
