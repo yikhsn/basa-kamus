@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     translations: {
-        marginTop: 5,
         flexDirection: 'row',
         flexWrap: 'wrap'
     },
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
     },
     translation: {
         fontSize: 18,
-        color: '#555555',
+        color: '#444444',
     }
 });
 

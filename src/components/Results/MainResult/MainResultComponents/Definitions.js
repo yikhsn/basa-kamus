@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         fontSize: 18,
         paddingVertical: 3,
-        color: '#555555'
+        color: '#444444'
     }
 })
 

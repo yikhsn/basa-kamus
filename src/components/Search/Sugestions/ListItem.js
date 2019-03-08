@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, Text, View, StyleSheet } from 'react-native';
+import { TouchableHighlight, Text, View, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
@@ -13,15 +13,30 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignContent: 'space-between'
+    },
+    content: {
         justifyContent: 'center'
     },
     text: {
-        color: '#666666',
+        color: '#444444',
         fontSize: 22
     },
     type: {
         fontSize: 18,
-        color: '#888888',
+        color: '#666666',
+    },
+    imageContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
+    image:{
+        width: 15,
+        height: 15,
     }
 })
 
@@ -35,8 +50,16 @@ class ListItem extends Component{
                 underlayColor={'#eaeaea'}
             >
                 <View style={styles.container}>
-                    <Text style={styles.text}>{this.props.word}</Text>
-                    <Text style={styles.type}>{this.props.type}</Text>
+                    <View style={styles.content}>
+                        <Text style={styles.text}>{this.props.word}</Text>
+                        <Text style={styles.type}>{this.props.type}</Text>
+                    </View>
+                    <View style={styles.imageContainer}>
+                        <Image 
+                            source={ require('../../../../assets/arrow-right.png') }
+                            style={styles.image}
+                        />
+                    </View>
                 </View>
             </TouchableHighlight>
         )

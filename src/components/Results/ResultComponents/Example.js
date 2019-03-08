@@ -8,11 +8,11 @@ const styles = StyleSheet.create({
     },
     words:{
         fontSize: 18,
-        color: '#666666'
+        color: '#444444'
     },
     translation: {
         fontSize: 18,
-        color: '#888888'
+        color: '#777777'
     }
 })
 

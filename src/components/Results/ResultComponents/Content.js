@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
     subtitle: {
         fontSize: 18,
         fontWeight: '500',
-        color: '#666666',
+        color: '#444444',
         marginBottom: 3
     },
     content: {
         fontSize: 18,
-        color: '#666666',
+        color: '#444444',
         marginBottom: 3,
         marginTop: 3,
     }

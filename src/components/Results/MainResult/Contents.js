@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     number: {
         fontSize: 16,
-        paddingVertical: 3,
+        paddingVertical: 5,
         color: '#888888' 
     },
 

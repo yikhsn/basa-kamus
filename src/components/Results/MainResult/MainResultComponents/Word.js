@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     word: {
-        fontSize: 35,
+        fontSize: 45,
         fontWeight: '500',
         color: '#333333'
     }

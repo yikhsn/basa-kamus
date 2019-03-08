@@ -3,27 +3,30 @@ import { View, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        height: 110,
+        height: 130,
         backgroundColor: '#00C749',
         paddingLeft: 10,
         paddingRight: 10,        
-        paddingTop: 10,
         paddingBottom: 10,
 
         justifyContent: 'center',
     },
     titleContainer: {
-        height: 40,
-        justifyContent: 'center'
+        height: 60,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
     },
     searchContainer:{
         height: 60,
         flexDirection: 'row'
     },
     titleHeader: {
-        fontSize: 25,
+        fontSize: 35,
         fontWeight: '500',
         color: '#ffffff',
+        justifyContent: 'center'
+
     },    
 })
 
