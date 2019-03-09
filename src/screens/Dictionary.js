@@ -35,7 +35,6 @@ class Dictionary extends Component{
                                 { datas.types.length > 0 ? <MainResult /> : null }
 
                                 { renderDetailResult }
-
                             </View>
                 }
             </ScrollView>

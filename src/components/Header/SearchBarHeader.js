@@ -4,14 +4,14 @@ import * as actionCreators from '../../store/actionCreators';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import axios from 'axios';
+import axios from '../../axios/axios';
 
 import HeaderBox from './HeaderBox';
 import SearchBox from '../Search/SearchBox/SearchBox';
 
 class SearchBarHeader extends Component{
     getData = (query) => {
-        return axios.get('http://10.0.2.2:3001/api/words/search/text/' + query)
+        return axios.get('text/' + query)
             .then( data => data.data)
             .catch( err => err);
     }

@@ -60,7 +60,6 @@ class SearchBox extends Component{
     render(){
         return (
             <View style={styles.container}>
-                
                 <TextInput 
                     style={styles.input}
                     value={this.props.datas.word}
@@ -93,9 +92,7 @@ class SearchBox extends Component{
                                 style={ styles.search }
                             />
                         </View>
-
                 }
-
             </View>
         )
     }

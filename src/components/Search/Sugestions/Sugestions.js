@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Keyboard } from 'react-native';
-import axios from 'axios';
 import * as actionCreators from '../../../store/actionCreators';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+import axios from '../../../axios/axios';
 
 import Recents from './Recents';
 import Results from './Results';
@@ -31,8 +32,6 @@ class Sugestions extends Component {
         this.getData(word).then( data => {
             this.props.setTypes(data);
         })
-
-        // console.log(this.props.datas);
     }
 
     onRecentSelectedHandler = (word, data) => {
@@ -48,9 +47,7 @@ class Sugestions extends Component {
     }
 
     getData = (query) => {
-        return axios.get('http://10.0.2.2:3001/api/words/search/' + query)
-            .then( data => data.data)
-            .catch( error => error );
+        return axios.get(query).then( data => data.data).catch( error => error );
     }
 
     render(){
