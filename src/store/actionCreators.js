@@ -46,3 +46,39 @@ export const removeSearchMode = () => {
         type: actionTypes.REMOVE_SEARCH_MODE
     }
 }
+
+export const setSearchLoading = () => {
+    return {
+        type: actionTypes.SET_SEARCH_LOADING
+    }
+}
+
+export const removeSearchLoading = () => {
+    return {
+        type: actionTypes.REMOVE_SEARCH_LOADING
+    }
+}
+
+export const setContentLoading = () => {
+    return {
+        type: actionTypes.SET_CONTENT_LOADING
+    }
+}
+
+export const removeContentLoading = () => {
+    return {
+        type: actionTypes.REMOVE_CONTENT_LOADING
+    }
+}
+
+export const setThereSugestions = () => {
+    return {
+        type: actionTypes.SET_THERE_SUGESTIONS
+    }
+}
+
+export const removeThereSugestions = () => {
+    return {
+        type: actionTypes.REMOVE_THERE_SUGESTIONS
+    }
+}

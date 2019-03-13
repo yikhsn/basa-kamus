@@ -5,7 +5,10 @@ const initialState = {
     types: [],
     sugestions: [],
     recents: [],
-    isSearchMode: false
+    isSearcLoading: false,
+    isContentLoading: false,
+    isSearchMode: false,
+    isThereSugestions: true
 }
 
 const reducer = (state = initialState, action) => {
@@ -70,7 +73,44 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isSearchMode: false
             }
-            
+
+        case actionTypes.SET_SEARCH_LOADING: {
+            return {
+                ...state,
+                isSearchLoading: true
+            }
+        }
+        
+        case actionTypes.REMOVE_SEARCH_LOADING:
+            return {
+                ...state,
+                isSearchLoading: false
+            }
+
+        case actionTypes.SET_CONTENT_LOADING:
+            return {
+                ...state,
+                isContentLoading: true
+            }
+
+        case actionTypes.REMOVE_CONTENT_LOADING:
+            return {
+                ...state,
+                isContentLoading: false
+            }
+
+        case actionTypes.SET_THERE_SUGESTIONS:
+            return {
+                ...state,
+                isThereSugestions: true
+            }
+
+        case actionTypes.REMOVE_THERE_SUGESTIONS:
+            return {
+                ...state,
+                isThereSugestions: false
+            }
+
         default:
             return state;
     }

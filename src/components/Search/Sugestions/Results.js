@@ -3,6 +3,7 @@ import { FlatList } from 'react-native';
 import * as actionCreators from '../../../store/actionCreators';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import ListItem from './ListItem';
 import HeaderList from './HeaderList';
 
@@ -15,8 +16,8 @@ class Results extends Component{
             <FlatList
                 keyboardShouldPersistTaps={'always'}
                 data={ sugestions }
-                renderItem={ ({ item }) =>  {
-                return <ListItem 
+                renderItem={ ({ item }) =>  {                
+                    return <ListItem 
                         word={ item.words }
                         item={ item }
                         type={ item.word_type }

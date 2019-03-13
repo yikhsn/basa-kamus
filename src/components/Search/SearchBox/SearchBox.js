@@ -69,6 +69,7 @@ class SearchBox extends Component{
                     placeholder={'Cari...'}
                     onChangeText={(word) => this.props.onInputChanged(word)}
                     onFocus={this.props.setSearchMode}
+                    underlineColorAndroid='transparent'
                 />
                 
                 {

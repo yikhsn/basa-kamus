@@ -5,6 +5,7 @@ import * as actionCreators from '../store/actionCreators';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import ContentLoader from '../components/Results/ContentLoader/ContentLoader';
 import DetailResult from '../components/Results/DetailResult/DetailResult';
 import MainResult from '../components/Results/MainResult/MainResult';
 import Sugestions from '../components/Search/Sugestions/Sugestions';
@@ -30,12 +31,12 @@ class Dictionary extends Component{
                 {
                     datas.isSearchMode 
                         ?   <Sugestions />
-                        :   <View>
-                                
-                                { datas.types.length > 0 ? <MainResult /> : null }
-
-                                { renderDetailResult }
-                            </View>
+                        :   datas.isContentLoading 
+                            ?   <ContentLoader />
+                            :   <View>                                
+                                    { datas.types.length > 0 ? <MainResult /> : null }
+                                    { renderDetailResult }
+                                </View>
                 }
             </ScrollView>
         )
