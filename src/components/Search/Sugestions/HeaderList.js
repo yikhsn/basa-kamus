@@ -3,10 +3,9 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        borderTopWidth: 3,
         borderBottomWidth: 2,
         borderColor: '#eaeaea',
-        paddingVertical: 10,
+        paddingVertical: 5,
         paddingHorizontal: 13,
         justifyContent: 'center',
         backgroundColor: '#ffffff'

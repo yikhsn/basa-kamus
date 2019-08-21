@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import * as actionCreators from '../../store/actionCreators';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -16,8 +15,34 @@ class SearchBarHeader extends Component{
             .catch( err => []);
     }
 
+    setData = (word) => {
+
+        // call getData function to get the data from the server
+        this.getData(word).then( data => { 
+
+            // when the data is back, remove <SearchLoading /> from the result search
+            this.props.removeSearchLoading();
+
+            // checking if the array more than 0, if true, set it to sugestions data
+            if ( data.length > 0 ) this.props.setSugestions(data);
+            
+            // if the data not more than 0 or just an empty array, it means no data found
+            else {
+                // set the 'isThereSugestions' to false, to load <NoDataFound /> component
+                this.props.removeThereSugestions();
+            }
+        });
+    }
+
     onInputChangedHandler = (word) => {
         this.props.setWord(word);
+
+        // set 'isThereSugestions' to true to not load <NoDataFound /> components
+        this.props.setThereSugestions();
+
+        // set 'sugestions' state to empty array everytime input changed
+        // this use to delete earlier sugestions from earlier input changed event
+        this.props.setSugestions([]);
 
         // checking words user input not an empty string
         // if user inpur is not an empty string
@@ -26,41 +51,13 @@ class SearchBarHeader extends Component{
             // set search loading, to load <SearchLoading /> while waiting app
             // to request data from the server, untill the data is come
             this.props.setSearchLoading();
-    
-            // set 'isThereSugestions' to true to not load <NoDataFound /> components
-            this.props.setThereSugestions();
 
-            // set 'sugestions' state to empty array everytime input changed
-            // this use to delete earlier sugestions from earlier input changed event
-            this.props.setSugestions([]);
-
-           // call getData function to get the data from the server
-            this.getData(word)
-                .then( data => { 
-                    // when the data is back, remove <SearchLoading /> from the result search
-                    this.props.removeSearchLoading();
-
-                    // checking if the array more than 0, if true, set it to sugestions data
-                    if ( data.length > 0 ) {
-                        this.props.setSugestions(data);
-                    }
-                    // if the data not more than 0 or just an empty array, it means no data found
-                    else {
-                        // set the sugestions data to the empty array
-                        this.props.setSugestions([]);
-
-                        // set the 'isThereSugestions' to false, to load <NoDataFound /> component
-                        this.props.removeThereSugestions();
-                    }
-                });
+            // set data
+            this.setData(word.trim());
         }
 
         // if user input is an empty string
-        else {
-            this.props.removeSearchLoading();
-
-            this.props.setSugestions([]);
-        }
+        else this.props.removeSearchLoading();
     }
 
     render(){

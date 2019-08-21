@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        height: 130,
+        height: 100,
         backgroundColor: '#00C749',
         paddingLeft: 10,
         paddingRight: 10,        
@@ -12,18 +12,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     titleContainer: {
-        height: 60,
+        height: 40,
         alignItems: 'center',
         justifyContent: 'flex-start',
         flexDirection: 'row',
     },
     searchContainer:{
-        height: 60,
-        flexDirection: 'row'
+        height: 50,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     titleHeader: {
-        fontSize: 35,
-        fontWeight: '500',
+        fontSize: 32,
+        fontFamily: 'SourceSansPro-Bold',
         color: '#ffffff',
         justifyContent: 'center'
 
@@ -35,7 +37,7 @@ class HeaderBox extends Component{
         return(
             <View style={styles.container}>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.titleHeader}>Basa</Text>
+                    <Text style={styles.titleHeader}>BASA</Text>
                 </View>
                 <View  style={styles.searchContainer}>
                     { this.props.children }

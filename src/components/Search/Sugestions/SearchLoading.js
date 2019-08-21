@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 
 import HeaderList from './HeaderList';
+import FooterList from './FooterList';
 
 const styles = StyleSheet.create({
     container: {
@@ -17,13 +18,13 @@ class SearchLoading extends Component{
         return(
             <View>
                 <HeaderList title='Pencarian' />
-
                 <View style={styles.container}>
                     <ActivityIndicator
                         size="large"    
                         color="#00C749"
                         />
                 </View>
+                <FooterList />
             </View>
         )
     }

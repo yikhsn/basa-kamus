@@ -6,10 +6,10 @@ import { bindActionCreators } from 'redux';
 
 import ListItem from './ListItem';
 import HeaderList from './HeaderList';
+import FooterList from './FooterList';
 
 class Results extends Component{
     render(){
-
         const { sugestions } = this.props.datas;
 
         return(
@@ -26,6 +26,7 @@ class Results extends Component{
                 }}
                 keyExtractor={ (item, index) => item + index }
                 ListHeaderComponent={ () => <HeaderList title='Pencarian' /> }
+                ListFooterComponent={ () => <FooterList /> }
             />
         )
     }

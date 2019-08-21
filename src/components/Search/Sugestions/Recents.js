@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 
 import ListItem from './ListItem';
 import HeaderList from './HeaderList';
+import FooterList from './FooterList';
 
 class Recents extends Component {    
 
@@ -27,6 +28,7 @@ class Recents extends Component {
                 }}
                 keyExtractor={ (item, index) => item + index }
                 ListHeaderComponent={ () => <HeaderList title='Terakhir' /> }
+                ListFooterComponent={ () => <FooterList /> }
             />
         )
     }

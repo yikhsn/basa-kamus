@@ -62,40 +62,46 @@ class Sugestions extends Component {
     }
 
     render(){
-        const { recents, sugestions, isSearchLoading, isThereSugestions } = this.props.datas;
+        const {
+            recents,
+            sugestions,
+            isSearchLoading,
+            isThereSugestions 
+        } = this.props.datas;
 
         return(
             <ScrollView 
                 style={styles.container}
                 keyboardShouldPersistTaps={'always'}
             >
-            {
-                isSearchLoading 
-                    ?   <SearchLoading /> 
-                    :   null
-            }
 
-            {
-                isThereSugestions
-                    ? null
-                    : <NoDataFound />
-            }
-            
-            {
-                sugestions.length > 0
-                    ? <Results 
-                        onListSelected={this.onListSelectedHandler}
-                    />
-                    : null
-            }
+                {
+                    isSearchLoading 
+                        ?   <SearchLoading /> 
+                        :   null
+                }
 
-            {
-                recents.length > 0
-                    ? <Recents
-                        onRecentSelected={this.onRecentSelectedHandler}
-                    />
-                    : null
-            }
+                {
+                    isThereSugestions
+                        ?   null
+                        :   <NoDataFound />
+                }
+                
+                {
+                    sugestions.length > 0
+                        ?   <Results 
+                                onListSelected={this.onListSelectedHandler}
+                            />
+                        :   null
+                }
+
+                {
+                    recents.length > 0
+                        ?   <Recents
+                                onRecentSelected={this.onRecentSelectedHandler}
+                            />
+                        :   null
+                }
 
             </ScrollView>
         )

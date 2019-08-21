@@ -12,24 +12,26 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 const styles = StyleSheet.create({
-    
     container: {
         flex: 1,
+        padding: 5,
         flexDirection: 'row',
         backgroundColor: '#ffffff',
-        padding: 10,
         justifyContent: 'center',
         alignItems: 'center',
-
     },
     input: {
         flex: 1,
-        height: 50,
-        fontSize: 22,
+        padding: 5,
+        height: 40,
+        fontSize: 20,
+        fontFamily: 'SourceSerifPro-Italic',
         color: '#666666',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     button: {
-        width: 35,
+        height: 35,
         width: 35,
         justifyContent: 'center',
         alignItems: 'center'
@@ -42,11 +44,11 @@ const styles = StyleSheet.create({
     close:{
         width: 20,
         height: 20,
+        opacity: 0.7,
     }
 })
 
 class SearchBox extends Component{
-    
     onCloseHandler = () => {
         Keyboard.dismiss();
 
@@ -55,6 +57,8 @@ class SearchBox extends Component{
         this.props.setSugestions([]);
 
         this.props.removeSearchMode();
+
+        this.props.setThereSugestions();
     }
     
     render(){

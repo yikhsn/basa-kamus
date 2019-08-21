@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#444444',
-        fontSize: 22
+        fontSize: 20
     },
     type: {
         fontSize: 18,
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
 })
 
 class ListItem extends Component{
-    
     render(){
         return(
             <TouchableHighlight 

@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     word: {
         fontSize: 45,
+        fontFamily: 'SourceSerifPro-Regular',
         fontWeight: '500',
         color: '#333333'
     }

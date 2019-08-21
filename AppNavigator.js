@@ -5,7 +5,6 @@ import {
     createAppContainer 
 } from 'react-navigation';
 
-import MainHeader from './src/components/Header/MainHeader';
 import SearchBarHeader from './src/components/Header/SearchBarHeader';
 
 import Dictionary from './src/screens/Dictionary';
@@ -24,7 +23,6 @@ const AppNavigator = createStackNavigator(
             screen: Search,
             navigationOptions: {
                 header: navProps => <SearchBarHeader {...navProps}/>
-            
             }
         }
     },

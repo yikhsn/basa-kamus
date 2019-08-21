@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import HeaderList from './HeaderList';
+import FooterList from './FooterList';
 
 const styles = StyleSheet.create({
     container: {
@@ -9,7 +10,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 20,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#ffffff'
     },
     text: {
         color: '#666666',
@@ -28,6 +30,7 @@ class SearchLoading extends Component{
                         Kata tidak ditemukan!
                     </Text>
                 </View>
+                <FooterList />
             </View>
         )
     }
